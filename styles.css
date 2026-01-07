@@ -1,0 +1,965 @@
+/* ===================================
+   VARIABLES CSS - ESTILO TALAVERA MEXICANA
+   =================================== */
+:root {
+    /* Paleta de colores Talavera */
+    --azul-principal: #1E3A8A;
+    --azul-claro: #3B82F6;
+    --blanco: #FFFFFF;
+    --gris-texto: #6B7280;
+    --azul-oscuro: #0F172A;
+
+    /* Tipografías según especificación */
+    --font-cursive: 'Great Vibes', cursive; /* Para títulos cursivos */
+    --font-nombres: 'Playfair Display', serif; /* Para nombres */
+    --font-detalles: 'Cormorant Garamond', serif; /* Para detalles */
+}
+
+/* ===================================
+   RESET Y BASE
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-detalles);
+    color: var(--azul-oscuro);
+    background: var(--blanco);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Canvas generativo de Talavera */
+.talavera-background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Efecto parallax en el fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--blanco);
+    z-index: -2;
+}
+
+/* Patrón sutil de Talavera en el fondo */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(30, 58, 138, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ===================================
+   BOTÓN DE MÚSICA
+   =================================== */
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--azul-principal);
+    color: white;
+    border: 3px solid var(--azul-claro);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.music-btn:hover {
+    transform: scale(1.15) rotate(10deg);
+    background: var(--azul-claro);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.6);
+}
+
+/* ===================================
+   MARCO ORNAMENTAL TALAVERA
+   =================================== */
+.fixed-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Marco decorativo principal */
+.geometric-frame {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    border: 8px solid var(--azul-principal);
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow:
+        inset 0 0 50px rgba(30, 58, 138, 0.1),
+        0 0 50px rgba(30, 58, 138, 0.2);
+}
+
+/* Decoraciones de esquinas - Superior Izquierda */
+.geometric-frame::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 100px;
+    height: 100px;
+    background:
+        radial-gradient(circle at center, var(--azul-principal) 3px, transparent 3px),
+        radial-gradient(circle at 25% 25%, var(--azul-claro) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, var(--azul-claro) 2px, transparent 2px);
+    background-size: 20px 20px, 15px 15px, 15px 15px;
+    border-radius: 20px 0 50% 0;
+}
+
+/* Decoraciones de esquinas - Inferior Derecha */
+.geometric-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 100px;
+    height: 100px;
+    background:
+        radial-gradient(circle at center, var(--azul-principal) 3px, transparent 3px),
+        radial-gradient(circle at 25% 25%, var(--azul-claro) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, var(--azul-claro) 2px, transparent 2px);
+    background-size: 20px 20px, 15px 15px, 15px 15px;
+    border-radius: 0 20px 0 50%;
+}
+
+/* Patrones decorativos laterales */
+.talavera-pattern {
+    position: fixed;
+    z-index: 2;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.talavera-pattern.talavera-top-left {
+    top: 50px;
+    left: 50px;
+    width: 120px;
+    height: 120px;
+    background:
+        conic-gradient(from 45deg at 50% 50%, var(--azul-principal) 0deg 90deg, transparent 90deg 180deg, var(--azul-claro) 180deg 270deg, transparent 270deg 360deg);
+    border-radius: 50%;
+    animation: rotatePattern 20s linear infinite;
+}
+
+.talavera-pattern.talavera-bottom-right {
+    bottom: 50px;
+    right: 50px;
+    width: 120px;
+    height: 120px;
+    background:
+        conic-gradient(from -45deg at 50% 50%, var(--azul-claro) 0deg 90deg, transparent 90deg 180deg, var(--azul-principal) 180deg 270deg, transparent 270deg 360deg);
+    border-radius: 50%;
+    animation: rotatePattern 20s linear infinite reverse;
+}
+
+@keyframes rotatePattern {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Decoraciones florales en las esquinas superiores */
+.talavera-pattern.talavera-top-left::before {
+    content: '✿';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 30px;
+    color: var(--azul-principal);
+    animation: float 3s ease-in-out infinite;
+}
+
+.talavera-pattern.talavera-bottom-right::before {
+    content: '❀';
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    font-size: 30px;
+    color: var(--azul-claro);
+    animation: float 3s ease-in-out infinite 0.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ===================================
+   CONTENT WRAPPER Y SECCIONES
+   =================================== */
+.content-wrapper {
+    position: relative;
+    z-index: 3;
+}
+
+.content-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px;
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-section.active,
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Fade-in suave al entrar */
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   HERO CONTENT - NOMBRES Y FECHA
+   =================================== */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow:
+        0 20px 60px rgba(30, 58, 138, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(30, 58, 138, 0.1);
+}
+
+.hero-subtitle {
+    font-family: var(--font-detalles);
+    font-weight: 400;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    letter-spacing: 8px;
+    color: var(--gris-texto);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    animation: fadeDown 1.2s ease-out;
+}
+
+.hero-title {
+    font-family: var(--font-nombres);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: 4px;
+    color: var(--azul-principal);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    animation: fadeUp 1.2s ease-out 0.2s backwards;
+    text-shadow: 2px 2px 4px rgba(30, 58, 138, 0.1);
+}
+
+.couple-names-container {
+    margin: 70px 0;
+    animation: scaleIn 1.2s ease-out 0.4s backwards;
+}
+
+.couple-names {
+    font-family: var(--font-cursive); /* Great Vibes */
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--azul-principal);
+    margin: 0;
+    text-shadow: 3px 3px 6px rgba(30, 58, 138, 0.2);
+}
+
+.ampersand-small {
+    font-family: var(--font-cursive);
+    font-size: 0.6em;
+    display: inline-block;
+    margin: 20px 0;
+    color: var(--azul-claro);
+}
+
+.date-container {
+    margin-top: 60px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-radius: 20px;
+    animation: fadeUp 1.2s ease-out 0.6s backwards;
+}
+
+.date-month {
+    font-family: var(--font-nombres);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    letter-spacing: 8px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--azul-principal);
+}
+
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.date-day,
+.date-time {
+    font-family: var(--font-detalles);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--gris-texto);
+}
+
+.date-number {
+    font-family: var(--font-nombres);
+    font-size: clamp(4rem, 12vw, 7rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--azul-principal);
+    text-shadow: 3px 3px 8px rgba(30, 58, 138, 0.2);
+}
+
+.scroll-indicator {
+    margin-top: 50px;
+    font-size: 2.5rem;
+    animation: bounce 2s infinite;
+    color: var(--azul-claro);
+    opacity: 0.7;
+}
+
+/* Animaciones */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
+}
+
+/* ===================================
+   QUOTE SECTION
+   =================================== */
+.quote-hero-text {
+    margin: 50px 0;
+    padding: 40px;
+    border-left: 5px solid var(--azul-claro);
+    background: rgba(30, 58, 138, 0.02);
+    border-radius: 0 15px 15px 0;
+}
+
+.quote-message {
+    font-family: var(--font-cursive);
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    line-height: 1.6;
+    color: var(--azul-principal);
+    text-align: center;
+    font-weight: 400;
+}
+
+/* ===================================
+   CUENTA REGRESIVA - Estilo Azulejo
+   =================================== */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.countdown-item {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, var(--azul-principal) 0%, var(--azul-claro) 100%);
+    border-radius: 20px;
+    min-width: 140px;
+    box-shadow:
+        0 10px 30px rgba(30, 58, 138, 0.3),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+    border: 3px solid white;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+    background-size: 15px 15px;
+    pointer-events: none;
+}
+
+.countdown-item:hover {
+    transform: translateY(-15px) scale(1.08) rotate(2deg);
+    box-shadow:
+        0 20px 50px rgba(59, 130, 246, 0.5),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.countdown-number {
+    display: block;
+    font-size: clamp(3.5rem, 7vw, 5rem);
+    font-weight: 800;
+    color: white;
+    font-family: var(--font-nombres);
+    line-height: 1;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-label {
+    display: block;
+    font-size: 1.1rem;
+    color: white;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-family: var(--font-detalles);
+}
+
+/* ===================================
+   EVENT DETAILS
+   =================================== */
+.event-hero-details {
+    margin: 50px 0;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    border: 2px solid rgba(30, 58, 138, 0.1);
+}
+
+.event-icon {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: var(--azul-principal);
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.event-time {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--azul-principal);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-nombres);
+}
+
+.event-location {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--azul-oscuro);
+    font-family: var(--font-nombres);
+}
+
+.event-address {
+    color: var(--gris-texto);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.event-note,
+.event-suggestion {
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--azul-claro);
+    font-weight: 500;
+}
+
+/* Botones de mapa con hover */
+.map-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+}
+
+.btn-map {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    background: var(--azul-principal);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+    border: 3px solid var(--azul-claro);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-map:hover {
+    background: var(--azul-claro);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.5);
+    border-color: var(--azul-principal);
+}
+
+.btn-waze {
+    background: var(--azul-claro);
+    border-color: var(--azul-principal);
+}
+
+.btn-waze:hover {
+    background: var(--azul-principal);
+    border-color: var(--azul-claro);
+}
+
+/* ===================================
+   DRESS CODE
+   =================================== */
+.dresscode-content {
+    margin: 40px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-radius: 20px;
+}
+
+.dress-code-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--azul-principal);
+    margin: 1.5rem 0;
+    font-family: var(--font-nombres);
+}
+
+.dress-code-theme {
+    font-size: 1.3rem;
+    color: var(--azul-claro);
+    margin-top: 2rem;
+    font-style: italic;
+}
+
+/* ===================================
+   GIFTS, SOCIAL, RSVP SECTIONS
+   =================================== */
+.gifts-subtitle,
+.social-subtitle,
+.rsvp-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    color: var(--gris-texto);
+    font-style: italic;
+}
+
+.gifts-hero-content h3 {
+    font-family: var(--font-nombres);
+    font-size: 2.2rem;
+    color: var(--azul-principal);
+    margin: 2rem 0;
+    font-weight: 700;
+}
+
+.hashtag {
+    font-family: var(--font-cursive);
+    font-size: clamp(3rem, 7vw, 5rem);
+    margin: 3rem 0;
+    color: var(--azul-principal);
+    text-shadow: 3px 3px 6px rgba(30, 58, 138, 0.2);
+}
+
+.whatsapp-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.whatsapp-item {
+    text-align: center;
+}
+
+.whatsapp-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--azul-principal);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-nombres);
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    padding: 1.3rem 2.8rem;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    border: 3px solid #25D366;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-8px) scale(1.08) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5);
+}
+
+/* ===================================
+   INFO GRID
+   =================================== */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+    margin-top: 50px;
+}
+
+.info-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+    border: 3px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.info-card:hover {
+    transform: translateY(-15px) rotate(2deg);
+    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3);
+    border-color: var(--azul-claro);
+}
+
+.info-icon {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: var(--azul-principal);
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.info-card:hover .info-icon {
+    transform: scale(1.3) rotate(360deg);
+}
+
+.info-card h3 {
+    font-family: var(--font-nombres);
+    color: var(--azul-principal);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.info-card p {
+    color: var(--gris-texto);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* ===================================
+   FOOTER CON GRADIENTE
+   =================================== */
+.footer {
+    background: linear-gradient(135deg, var(--azul-principal) 0%, var(--azul-claro) 100%);
+    color: white;
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+.footer .container {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-message {
+    font-family: var(--font-cursive);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.footer-names {
+    font-family: var(--font-nombres);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.footer-date {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 6px;
+    color: white;
+}
+
+.footer-theme {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-credit {
+    font-size: 1rem;
+    margin-top: 3rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===================================
+   ANIMACIONES ADICIONALES
+   =================================== */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+@media (max-width: 768px) {
+    .geometric-frame {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        border-width: 5px;
+    }
+
+    .geometric-frame::before,
+    .geometric-frame::after {
+        width: 60px;
+        height: 60px;
+    }
+
+    .talavera-pattern.talavera-top-left,
+    .talavera-pattern.talavera-bottom-right {
+        width: 80px;
+        height: 80px;
+    }
+
+    .content-section {
+        padding: 80px 20px;
+    }
+
+    .hero-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .couple-names {
+        font-size: 4rem;
+    }
+
+    .date-number {
+        font-size: 4rem;
+    }
+
+    .countdown {
+        gap: 1.5rem;
+    }
+
+    .countdown-item {
+        min-width: 110px;
+        padding: 2rem 1.5rem;
+    }
+
+    .countdown-number {
+        font-size: 3rem;
+    }
+
+    .map-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-map {
+        width: 100%;
+    }
+
+    .whatsapp-numbers {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .couple-names {
+        font-size: 3rem;
+    }
+
+    .date-number {
+        font-size: 3rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .quote-message {
+        font-size: 2rem;
+    }
+
+    .event-location {
+        font-size: 1.3rem;
+    }
+
+    .countdown-item {
+        min-width: 100px;
+        padding: 1.5rem 1rem;
+    }
+
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===================================
+   UTILIDADES
+   =================================== */
+.text-center {
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
