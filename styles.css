@@ -963,3 +963,21 @@ body::after {
     margin: 0 auto;
     padding: 0 2rem;
 }
+/* Mapa embebido */
+.map-embed {
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+    border: 4px solid var(--azul-principal);
+}
+
+.map-embed iframe {
+    width: 100%;
+    height: 450px;
+    display: block;
+}
