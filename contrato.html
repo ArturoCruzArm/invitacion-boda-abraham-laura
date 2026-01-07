@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato - Boda Abraham & Laura</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80'>📄</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --azul-principal: #1E3A8A;
+            --azul-claro: #3B82F6;
+            --blanco: #FFFFFF;
+            --gris-texto: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--blanco);
+            color: var(--gris-texto);
+            line-height: 1.7;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 4px solid var(--azul-principal);
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(30, 58, 138, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid var(--azul-principal);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--azul-principal);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            color: var(--azul-claro);
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .header .date {
+            margin-top: 1rem;
+            color: var(--gris-texto);
+            font-size: 1.1rem;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--azul-principal);
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+            border-left: 5px solid var(--azul-claro);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--azul-claro);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box {
+            background: #F0F9FF;
+            border-left: 4px solid var(--azul-principal);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .info-box strong {
+            color: var(--azul-principal);
+        }
+
+        .highlight {
+            background: #FEF3C7;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .success {
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .pending {
+            color: #D97706;
+            font-weight: 600;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .signature-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--azul-principal);
+        }
+
+        .signature-box {
+            margin: 2rem 0;
+        }
+
+        .signature-line {
+            border-top: 2px solid var(--gris-texto);
+            margin-top: 3rem;
+            padding-top: 0.5rem;
+            text-align: center;
+            color: var(--gris-texto);
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .table th, .table td {
+            border: 2px solid var(--azul-principal);
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .table th {
+            background: var(--azul-principal);
+            color: white;
+            font-weight: 600;
+        }
+
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--azul-principal);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        .print-btn:hover {
+            background: var(--azul-claro);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+            .container {
+                border: none;
+                box-shadow: none;
+                padding: 1rem;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .container {
+                padding: 1.5rem;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>📄 CONTRATO DE SERVICIOS</h1>
+            <p class="subtitle">Fotografía y Video para Evento Social (Boda)</p>
+            <p class="date">Fecha de elaboración: 07 de Enero de 2026</p>
+        </div>
+
+        <h2>PARTE CONTRATANTE (LOS CLIENTES)</h2>
+
+        <div class="info-box">
+            <p><strong>Novia:</strong> Laura Daniela Muñoz Pachuca<br>
+            <strong>Domicilio:</strong> 3ra privada Muñoz #104, San José del Refugio, León, Guanajuato<br>
+            <strong>Teléfono:</strong> 477 721 5847</p>
+
+            <p><strong>Novio:</strong> Abraham Adán Gómez Domínguez<br>
+            <strong>Domicilio:</strong> Pastita, Mogote 30, Vis Gto., Guanajuato<br>
+            <strong>Teléfono:</strong> 473 738 9999</p>
+        </div>
+
+        <h2>PARTE PRESTADORA DE SERVICIOS</h2>
+
+        <div class="info-box">
+            <p><strong>Nombre comercial:</strong> Foro 7 - Arturo Cruz<br>
+            <strong>Fotógrafo:</strong> Arturo Cruz<br>
+            <strong>Teléfono:</strong> 477-920-3776<br>
+            <strong>Cuenta BBVA:</strong> 4152 3137 6890 8985</p>
+        </div>
+
+        <h2>DATOS DEL EVENTO</h2>
+
+        <div class="info-box">
+            <p><strong>Tipo de evento:</strong> Boda (Ceremonia Religiosa y Recepción)<br>
+            <strong>Fecha:</strong> <span class="highlight">Sábado 19 de Diciembre de 2026</span><br>
+            <strong>Contrayentes:</strong> Abraham & Laura<br>
+            <strong>Temática:</strong> Talavera (Azul y Blanco)</p>
+
+            <h3>Ubicaciones</h3>
+            <p><strong>Ceremonia Religiosa:</strong> Por confirmar<br>
+            <strong>Recepción:</strong> San Cayetana Casa de Eventos, Los Sauces, Guanajuato<br>
+            <strong>Mapa:</strong> <a href="https://maps.app.goo.gl/AGbxUHCMA3FHze5m6" target="_blank">Ver en Google Maps</a></p>
+        </div>
+
+        <h2>PAQUETE CONTRATADO</h2>
+
+        <h3>SUPER PAQUETE DE FOTOGRAFÍA Y VIDEO</h3>
+
+        <p><strong>Servicios de Cobertura:</strong></p>
+        <ul>
+            <li>Sesión fotográfica previa al evento</li>
+            <li>Cobertura de ceremonia religiosa: 1 hora</li>
+            <li>Cobertura de recepción: 8 horas</li>
+            <li><strong>Total de cobertura: 9 horas</strong></li>
+        </ul>
+
+        <p><strong>Productos Entregables - Fotografía:</strong></p>
+        <ul>
+            <li>200 fotografías impresas en tamaño 5x7 pulgadas <strong>O</strong> (a elección del cliente)</li>
+            <li>1 fotolibro de lujo tamaño 30x60 cm con 100 fotografías seleccionadas</li>
+            <li>1 fotografía ampliada a tamaño 60x80 cm</li>
+            <li>1 caja de madera decorativa para las fotografías</li>
+        </ul>
+
+        <p><strong>Productos Entregables - Video:</strong></p>
+        <ul>
+            <li>1 película completa del evento en formato digital (USB)</li>
+            <li>Edición profesional con musicalización y títulos</li>
+            <li>1 videoclip de la sesión previa y fotos del recuerdo para proyección en el salón</li>
+            <li>1 caja impresa personalizada para el USB</li>
+        </ul>
+
+        <p><strong>Servicios NO incluidos:</strong></p>
+        <ul>
+            <li>❌ Tomas aéreas con dron (NO incluido en este paquete)</li>
+            <li>Horas extras de cobertura ($500 MXN por hora adicional)</li>
+        </ul>
+
+        <h2>PRECIO Y FORMA DE PAGO</h2>
+
+        <div class="info-box">
+            <p><strong>Precio total del paquete:</strong> <span class="highlight">$8,500.00 MXN</span> (Ocho mil quinientos pesos 00/100 M.N.)</p>
+
+            <p><strong>Forma de pago:</strong></p>
+            <p><strong>Pago total:</strong> $8,500.00 MXN<br>
+            <strong>Fecha límite:</strong> 11 de Diciembre de 2026 (8 días antes del evento)<br>
+            <strong>Estado:</strong> <span class="pending">⏳ PENDIENTE</span></p>
+
+            <p><strong>Datos para transferencias:</strong><br>
+            Banco: BBVA<br>
+            Número de cuenta: 4152 3137 6890 8985<br>
+            Titular: Juan Arturo</p>
+        </div>
+
+        <h3>SERVICIOS ADICIONALES (Fuera del paquete de fotografía)</h3>
+
+        <div class="info-box" style="background: #F0FDF4;">
+            <p><strong>Invitación Digital Temática Talavera:</strong> $500.00 MXN<br>
+            <strong>Estado:</strong> <span class="success">✅ PAGADO (07 de Enero de 2026)</span></p>
+
+            <p><strong>Incluye:</strong></p>
+            <ul>
+                <li>Diseño web personalizado con tema Talavera Poblana</li>
+                <li>Patrones auténticos de azulejos mexicanos</li>
+                <li>Secciones: invitación, cuenta regresiva, ceremonia, recepción, RSVP</li>
+                <li>Música de fondo integrada</li>
+                <li>Mapa interactivo embebido de San Cayetana</li>
+                <li>Repositorio en GitHub: <a href="https://github.com/ArturoCruzArm/invitacion-boda-abraham-laura" target="_blank">Ver proyecto</a></li>
+            </ul>
+        </div>
+
+        <h2>PLAZOS DE ENTREGA</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Plazo de Entrega</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fotografías digitales (todas)</td>
+                    <td>30 días hábiles después del evento</td>
+                </tr>
+                <tr>
+                    <td>Fotografías impresas / Fotolibro</td>
+                    <td>45 días hábiles después del evento</td>
+                </tr>
+                <tr>
+                    <td>Video editado en USB</td>
+                    <td>60 días hábiles después del evento</td>
+                </tr>
+                <tr>
+                    <td>Fotografía ampliada 60x80 cm</td>
+                    <td>45 días hábiles después del evento</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><em>Nota: Los plazos pueden variar por temporada alta (diciembre). El prestador notificará cualquier ajuste con anticipación.</em></p>
+
+        <h2>OBLIGACIONES DEL PRESTADOR</h2>
+
+        <ul>
+            <li>Presentarse puntualmente en los lugares y horarios acordados</li>
+            <li>Contar con equipo profesional en óptimas condiciones</li>
+            <li>Realizar la cobertura con máxima calidad profesional</li>
+            <li>Entregar todos los productos especificados en el paquete</li>
+            <li>Mantener actitud profesional y respetuosa durante el evento</li>
+            <li>Coordinar la sesión previa con los contratantes</li>
+            <li>Editar y procesar el material de manera profesional</li>
+        </ul>
+
+        <h2>OBLIGACIONES DE LOS CONTRATANTES</h2>
+
+        <ul>
+            <li>Proporcionar información completa sobre horarios y ubicaciones</li>
+            <li>Liquidar el pago total al menos 8 días antes del evento (11/12/2026)</li>
+            <li>Facilitar acceso a todas las áreas necesarias para la cobertura</li>
+            <li>Informar cambios en la logística con anticipación</li>
+            <li>Coordinar facilidades necesarias con responsables del lugar</li>
+        </ul>
+
+        <h2>DERECHOS DE AUTOR</h2>
+
+        <ul>
+            <li>Los derechos de autor pertenecen al prestador</li>
+            <li>Los contratantes obtienen derecho de uso personal, familiar y en redes sociales</li>
+            <li>El prestador puede usar el material con fines promocionales y para su portafolio</li>
+            <li>Reproducción comercial requiere autorización expresa del prestador</li>
+        </ul>
+
+        <div class="signature-section">
+            <h2>FIRMAS DE ACEPTACIÓN</h2>
+
+            <div class="signature-box">
+                <p><strong>Por LOS CONTRATANTES:</strong></p>
+
+                <p><strong>Laura Daniela Muñoz Pachuca</strong></p>
+                <div class="signature-line">Firma y fecha</div>
+
+                <p style="margin-top: 3rem;"><strong>Abraham Adán Gómez Domínguez</strong></p>
+                <div class="signature-line">Firma y fecha</div>
+            </div>
+
+            <div class="signature-box" style="margin-top: 3rem;">
+                <p><strong>Por EL PRESTADOR:</strong></p>
+
+                <p><strong>Arturo Cruz</strong><br>
+                Foro 7 - Fotografía y Video</p>
+                <div class="signature-line">Firma y fecha</div>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top: 3rem; text-align: center; background: #F0F9FF;">
+            <p><strong>Este contrato se elabora por duplicado, quedando un ejemplar en poder de cada una de las partes.</strong></p>
+            <p style="margin-top: 1rem;">Temática del evento: <strong>Talavera (Azul y Blanco)</strong></p>
+        </div>
+    </div>
+</body>
+</html>

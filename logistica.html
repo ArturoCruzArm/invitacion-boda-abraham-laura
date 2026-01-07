@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística - Boda Abraham & Laura</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80'>📋</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --azul-principal: #1E3A8A;
+            --azul-claro: #3B82F6;
+            --blanco: #FFFFFF;
+            --gris-texto: #374151;
+            --verde: #059669;
+            --amarillo: #D97706;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            color: var(--gris-texto);
+            line-height: 1.7;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 4px solid var(--azul-principal);
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(30, 58, 138, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid var(--azul-principal);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #F0F9FF 0%, #DBEAFE 100%);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--azul-principal);
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            color: var(--azul-claro);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .header .date {
+            margin-top: 1rem;
+            color: var(--gris-texto);
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--azul-principal);
+            font-size: 1.9rem;
+            margin: 2.5rem 0 1.2rem 0;
+            font-weight: 600;
+            border-left: 6px solid var(--azul-claro);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--azul-claro);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .info-card {
+            background: #F0F9FF;
+            border: 2px solid var(--azul-claro);
+            border-left: 6px solid var(--azul-principal);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .info-card.highlight {
+            background: #FEF3C7;
+            border-color: #F59E0B;
+            border-left-color: #D97706;
+        }
+
+        .info-card.success {
+            background: #F0FDF4;
+            border-color: #34D399;
+            border-left-color: #059669;
+        }
+
+        .timeline {
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-marker {
+            width: 40px;
+            height: 40px;
+            background: var(--azul-principal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: #F9FAFB;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--azul-claro);
+        }
+
+        .checklist {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .checklist li {
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border: 2px solid #E5E7EB;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 1rem;
+            font-size: 1.3rem;
+            color: var(--azul-principal);
+        }
+
+        .checklist li.done:before {
+            content: "✓";
+            color: var(--verde);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-box {
+            background: white;
+            border: 2px solid var(--azul-principal);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+
+        .contact-box .phone {
+            font-size: 1.4rem;
+            color: var(--azul-principal);
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .badge.pending {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+
+        .badge.done {
+            background: #D1FAE5;
+            color: #059669;
+        }
+
+        .badge.urgent {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--azul-principal);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            background: var(--azul-claro);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+            .container {
+                border: none;
+                box-shadow: none;
+                padding: 1rem;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .container {
+                padding: 1.5rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>📋 LOGÍSTICA DEL EVENTO</h1>
+            <p class="subtitle">Boda Abraham & Laura</p>
+            <p class="date">Sábado 19 de Diciembre de 2026</p>
+        </div>
+
+        <h2>💑 DATOS DE LOS NOVIOS</h2>
+
+        <div class="grid-2">
+            <div class="contact-box">
+                <h3>👰 Novia</h3>
+                <p><strong>Laura Daniela Muñoz Pachuca</strong></p>
+                <p class="phone">📱 477 721 5847</p>
+                <p style="font-size: 0.95rem; margin-top: 1rem;">3ra privada Muñoz #104<br>San José del Refugio, León, Gto.</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>🤵 Novio</h3>
+                <p><strong>Abraham Adán Gómez Domínguez</strong></p>
+                <p class="phone">📱 473 738 9999</p>
+                <p style="font-size: 0.95rem; margin-top: 1rem;">Pastita, Mogote 30<br>Vis Gto., Guanajuato</p>
+            </div>
+        </div>
+
+        <h2>📅 CRONOGRAMA DEL EVENTO</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">⛪</div>
+                <div class="timeline-content">
+                    <h3>Ceremonia Religiosa</h3>
+                    <p><strong>Lugar:</strong> <span class="badge pending">Por confirmar</span></p>
+                    <p><strong>Hora:</strong> <span class="badge pending">Por confirmar</span></p>
+                    <p><strong>Duración estimada:</strong> 1 hora</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">🎉</div>
+                <div class="timeline-content">
+                    <h3>Recepción</h3>
+                    <p><strong>Lugar:</strong> San Cayetana Casa de Eventos</p>
+                    <p><strong>Dirección:</strong> Los Sauces, Guanajuato</p>
+                    <p><strong>Hora:</strong> <span class="badge pending">Por confirmar</span></p>
+                    <p><strong>Duración:</strong> 8 horas</p>
+                    <p><strong>Mapa:</strong> <a href="https://maps.app.goo.gl/AGbxUHCMA3FHze5m6" target="_blank" style="color: var(--azul-principal);">📍 Ver en Google Maps</a></p>
+                </div>
+            </div>
+        </div>
+
+        <h2>📸 SERVICIOS DE FOTOGRAFÍA Y VIDEO</h2>
+
+        <div class="info-card">
+            <h3>Proveedor</h3>
+            <p><strong>Foro 7 - Arturo Cruz</strong><br>
+            📱 Teléfono: 477-920-3776<br>
+            🏦 Cuenta BBVA: 4152 3137 6890 8985</p>
+        </div>
+
+        <div class="info-card highlight">
+            <h3>💰 SUPER PAQUETE DE FOTOGRAFÍA Y VIDEO - $8,500 MXN</h3>
+
+            <p><strong>Cobertura Total:</strong></p>
+            <ul>
+                <li>Sesión fotográfica previa al evento</li>
+                <li>Ceremonia religiosa: 1 hora</li>
+                <li>Recepción: 8 horas</li>
+                <li><strong>Total: 9 horas de cobertura</strong></li>
+            </ul>
+
+            <p style="margin-top: 1rem;"><strong>Incluye:</strong></p>
+            <ul>
+                <li>200 fotos impresas 5x7" <strong>O</strong> 1 fotolibro 30x60 cm de lujo</li>
+                <li>1 película en USB editada, musicalizada y titulada 📹</li>
+                <li>1 videoclip para proyectar en el salón</li>
+                <li>1 caja impresa para la USB</li>
+                <li>1 foto ampliada 60x80 cm</li>
+                <li>1 caja de madera para las fotografías</li>
+            </ul>
+
+            <p style="margin-top: 1rem;"><strong>⚠️ NO incluye:</strong> Tomas de dron</p>
+        </div>
+
+        <div class="info-card">
+            <h3>💳 Forma de Pago</h3>
+            <p><strong>Saldo total:</strong> $8,500 MXN <span class="badge urgent">Pendiente</span></p>
+            <p><strong>Fecha límite:</strong> 11 de Diciembre de 2026 (8 días antes)</p>
+            <p><strong>Método:</strong> Transferencia bancaria BBVA</p>
+        </div>
+
+        <div class="info-card success">
+            <h3>✅ Servicios Adicionales Pagados</h3>
+            <p><strong>Invitación Digital Temática Talavera:</strong> $500 MXN <span class="badge done">Pagado 07/01/2026</span></p>
+            <ul>
+                <li>Página web personalizada con diseño Talavera Poblana</li>
+                <li>Patrones auténticos de azulejos mexicanos</li>
+                <li>Cuenta regresiva, mapa interactivo, RSVP</li>
+                <li>GitHub: <a href="https://github.com/ArturoCruzArm/invitacion-boda-abraham-laura" target="_blank" style="color: var(--verde);">Ver proyecto</a></li>
+            </ul>
+        </div>
+
+        <h2>🎨 TEMÁTICA DEL EVENTO</h2>
+
+        <div class="info-card">
+            <h3>TALAVERA (Azul y Blanco)</h3>
+            <p><strong>Paleta de colores:</strong></p>
+            <ul>
+                <li>Color principal: Azul (diversos tonos)</li>
+                <li>Color secundario: Blanco</li>
+                <li>Inspiración: Azulejos de Talavera Poblana</li>
+            </ul>
+        </div>
+
+        <h2>✅ CHECKLIST DE PREPARATIVOS</h2>
+
+        <h3>8 Semanas Antes (Mediados de Octubre 2026)</h3>
+        <ul class="checklist">
+            <li>Confirmar lugar y hora de ceremonia religiosa</li>
+            <li>Confirmar hora exacta de recepción</li>
+            <li>Actualizar invitación web con horarios confirmados</li>
+            <li>Coordinar sesión fotográfica previa</li>
+        </ul>
+
+        <h3>4 Semanas Antes (Mediados de Noviembre 2026)</h3>
+        <ul class="checklist">
+            <li>Revisar detalles de decoración con temática Talavera</li>
+            <li>Confirmar menú y número de invitados con San Cayetana</li>
+            <li>Coordinar logística del día con fotógrafo</li>
+        </ul>
+
+        <h3>2 Semanas Antes (Principios de Diciembre 2026)</h3>
+        <ul class="checklist">
+            <li>Confirmar todos los proveedores</li>
+            <li>Realizar prueba de peinado y maquillaje</li>
+            <li>Coordinar horarios de llegada del equipo fotográfico</li>
+        </ul>
+
+        <h3>8 Días Antes (11 de Diciembre 2026)</h3>
+        <ul class="checklist">
+            <li><strong>⚠️ LIQUIDAR SALDO DE FOTOGRAFÍA Y VIDEO ($8,500 MXN)</strong></li>
+            <li>Confirmar detalles finales con todos los proveedores</li>
+        </ul>
+
+        <h3>1 Día Antes (18 de Diciembre 2026)</h3>
+        <ul class="checklist">
+            <li>Verificar que todo esté listo en San Cayetana</li>
+            <li>Confirmar horarios con fotógrafo</li>
+            <li>Preparar lista de fotos específicas deseadas</li>
+        </ul>
+
+        <h3>Día del Evento (19 de Diciembre 2026)</h3>
+        <ul class="checklist">
+            <li>Sesión fotográfica matutina (hora por confirmar)</li>
+            <li>Ceremonia religiosa (hora por confirmar)</li>
+            <li>Recepción en San Cayetana</li>
+            <li>Proyección de videoclip durante la recepción</li>
+        </ul>
+
+        <h2>📞 CONTACTOS IMPORTANTES</h2>
+
+        <div class="grid-2">
+            <div class="contact-box">
+                <h3>👫 Novios</h3>
+                <p>Laura: <strong>477 721 5847</strong></p>
+                <p>Abraham: <strong>473 738 9999</strong></p>
+            </div>
+
+            <div class="contact-box">
+                <h3>📸 Fotografía y Video</h3>
+                <p>Arturo Cruz - Foro 7</p>
+                <p><strong>477-920-3776</strong></p>
+            </div>
+
+            <div class="contact-box">
+                <h3>🏛️ Recepción</h3>
+                <p>San Cayetana Casa de Eventos</p>
+                <p>Los Sauces, Guanajuato</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>⛪ Ceremonia</h3>
+                <p><span class="badge pending">Por confirmar</span></p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Agregar datos cuando se confirme</p>
+            </div>
+        </div>
+
+        <h2>🎯 PRÓXIMOS PASOS INMEDIATOS</h2>
+
+        <ul class="checklist">
+            <li class="done">Anticipo de invitación digital pagado ($500)</li>
+            <li>Confirmar lugar y hora de ceremonia religiosa</li>
+            <li>Confirmar hora exacta de recepción</li>
+            <li>Programar sesión fotográfica previa</li>
+            <li>Definir detalles finales de decoración Talavera</li>
+            <li>Preparar pago final ($8,500) para entregar el 11/12/2026</li>
+        </ul>
+
+        <div class="info-card" style="margin-top: 3rem; text-align: center; background: #F0F9FF;">
+            <p><strong>Última actualización:</strong> 07 de Enero 2026</p>
+            <p><strong>Responsable:</strong> Foro 7 - Arturo Cruz - 477-920-3776</p>
+        </div>
+    </div>
+</body>
+</html>
