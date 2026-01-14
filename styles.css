@@ -415,6 +415,70 @@ body::after {
     50% { transform: translateY(15px); }
 }
 
+
+/* ===================================
+   PARENTS AND GODPARENTS SECTION
+   =================================== */
+.parents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin: 50px 0;
+}
+
+.parents-block {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+    border: 3px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.parents-block:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3);
+    border-color: var(--azul-claro);
+}
+
+.parents-block.godparents {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.parents-title {
+    font-family: var(--font-nombres);
+    font-size: 1.4rem;
+    color: var(--azul-principal);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.parent-name {
+    font-family: var(--font-detalles);
+    font-size: 1.2rem;
+    color: var(--azul-oscuro);
+    margin: 1rem 0;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .parents-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .parents-block.godparents {
+        grid-column: 1;
+    }
+}
+
 /* ===================================
    QUOTE SECTION
    =================================== */
@@ -688,6 +752,30 @@ body::after {
     transform: translateY(-8px) scale(1.08) rotate(2deg);
     box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5);
 }
+
+
+.btn-gifts {
+    display: inline-block;
+    padding: 1.3rem 2.8rem;
+    background: linear-gradient(135deg, var(--azul-principal) 0%, var(--azul-claro) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+    border: 3px solid var(--azul-claro);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin-top: 1.5rem;
+}
+
+.btn-gifts:hover {
+    transform: translateY(-8px) scale(1.08) rotate(-2deg);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.5);
+    background: linear-gradient(135deg, var(--azul-claro) 0%, var(--azul-principal) 100%);
+}
+
+
 
 /* ===================================
    INFO GRID
