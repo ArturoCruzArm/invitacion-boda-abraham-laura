@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda - Laura & Abraham</title>
+    <title>Boda - Abraham & Laura</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80'>💍</text></svg>">
 
     <!-- Fuentes Talavera -->
@@ -46,9 +46,9 @@
 
                 <div class="couple-names-container">
                     <h2 class="couple-names">
-                        Laura <br>
+                        Abraham <br>
                         <span class="ampersand-small">y</span> <br>
-                        Abraham
+                        Laura
                     </h2>
                 </div>
 
@@ -57,7 +57,7 @@
                     <div class="date-row">
                         <span class="date-day">SÁBADO</span>
                         <span class="date-number">19</span>
-                        <span class="date-time">1:00 PM</span>
+                        <span class="date-time">Por confirmar</span>
                     </div>
                 </div>
 
@@ -65,38 +65,7 @@
             </div>
         </section>
 
-
-        <!-- 2. Parents and Godparents Section -->
-        <section class="content-section" data-section="parents">
-            <div class="hero-content">
-                <p class="hero-subtitle">CON LA BENDICIÓN DE</p>
-                <h1 class="hero-title">NUESTROS PADRES</h1>
-
-                <div class="parents-grid">
-                    <div class="parents-block">
-                        <h3 class="parents-title">Padres de la Novia</h3>
-                        <p class="parent-name">Delia Abrora Pachuca Díaz</p>
-                        <p class="parent-name">José Marcelino Muñoz Muñoz</p>
-                    </div>
-
-                    <div class="parents-block">
-                        <h3 class="parents-title">Padres del Novio</h3>
-                        <p class="parent-name">Rocío Domínguez Ramírez</p>
-                        <p class="parent-name">Jorge Emanuel Gómez Gasca</p>
-                    </div>
-
-                    <div class="parents-block godparents">
-                        <h3 class="parents-title">Padrinos de Velación</h3>
-                        <p class="parent-name">Pedro Domínguez Rangel</p>
-                        <p class="parent-name">Esperanza Ramírez Ortiz</p>
-                    </div>
-                </div>
-
-                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
-            </div>
-        </section>
-
-        <!-- 3. Quote Section -->
+        <!-- 2. Quote Section -->
         <section class="content-section" data-section="quote">
             <div class="hero-content">
                 <p class="hero-subtitle">CON TODO NUESTRO AMOR</p>
@@ -110,7 +79,7 @@
             </div>
         </section>
 
-        <!-- 4. Countdown Section -->
+        <!-- 3. Countdown Section -->
         <section class="content-section" data-section="countdown">
             <div class="hero-content">
                 <p class="hero-subtitle">NUESTRO GRAN DÍA EN</p>
@@ -139,7 +108,7 @@
             </div>
         </section>
 
-        <!-- 5. Ceremony Section -->
+        <!-- 4. Ceremony Section -->
         <section class="content-section" data-section="ceremony">
             <div class="hero-content">
                 <p class="hero-subtitle">TE ESPERAMOS EN</p>
@@ -147,23 +116,17 @@
 
                 <div class="event-hero-details">
                     <div class="event-icon"><i class="fas fa-church"></i></div>
-                    <p class="event-time">1:00 PM</p>
-                    <p class="event-location">Parroquia De Nuestra Señora de Guadalupe Madre de los Mexicanos</p>
-                    <p class="event-address">Madre Lucía 514, Diez de Mayo, León, Gto.</p>
+                    <p class="event-time">Por confirmar</p>
+                    <p class="event-location">Iglesia por confirmar</p>
                     <p class="event-note"><i class="fas fa-star"></i> Todos pueden asistir</p>
                     <p class="event-suggestion"><i class="far fa-clock"></i> Sugerimos llegar 15 minutos antes</p>
-                    <div class="map-buttons">
-                        <a href="https://maps.app.goo.gl/C8T2ftcVyVXbYgyG6" target="_blank" class="btn-map">
-                            <i class="fas fa-map-marked-alt"></i> Google Maps
-                        </a>
-                    </div>
                 </div>
 
                 <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
             </div>
         </section>
 
-        <!-- 6. Reception Section -->
+        <!-- 5. Reception Section -->
         <section class="content-section" data-section="reception">
             <div class="hero-content">
                 <p class="hero-subtitle">CELEBREMOS EN</p>
@@ -171,7 +134,7 @@
 
                 <div class="event-hero-details">
                     <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
-                    <p class="event-time">3:00 PM</p>
+                    <p class="event-time">Por confirmar</p>
                     <p class="event-location">San Cayetana Casa de Eventos</p>
                     <p class="event-address">Los Sauces, Guanajuato</p>
                     <p class="event-suggestion"><i class="far fa-clock"></i> Sugerimos llegar 15 minutos antes</p>
@@ -193,7 +156,7 @@
             </div>
         </section>
 
-        <!-- 7. Dress Code Section -->
+        <!-- 6. Dress Code Section -->
         <section class="content-section" data-section="dresscode">
             <div class="hero-content">
                 <p class="hero-subtitle">CÓDIGO DE</p>
@@ -202,16 +165,13 @@
                 <div class="dresscode-content">
                     <div class="event-icon"><i class="fas fa-user-tie"></i></div>
                     <p class="dress-code-text">Formal</p>
-                    <p class="dress-code-note" style="margin-top: 1.5rem; font-size: 1.2rem; color: var(--azul-claro); font-style: italic;">
-                        <i class="fas fa-info-circle"></i> Por favor, evita usar color blanco
-                    </p>
                 </div>
 
                 <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
             </div>
         </section>
 
-        <!-- 8. Gifts Section -->
+        <!-- 7. Gifts Section -->
         <section class="content-section" data-section="gifts">
             <div class="hero-content">
                 <p class="hero-subtitle">SI DESEAS OBSEQUIARNOS</p>
@@ -221,37 +181,28 @@
 
                 <div class="gifts-hero-content">
                     <div class="event-icon"><i class="fas fa-gift"></i></div>
-                    <h3>Liverpool</h3>
-                    <p>Tenemos mesa de regalos en Liverpool</p>
-                    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51927633" target="_blank" class="btn-gifts">
-                        <i class="fas fa-external-link-alt"></i> Ver Mesa de Regalos
-                    </a>
-                </div>
-
-                <div class="gifts-hero-content" style="margin-top: 2rem;">
-                    <div class="event-icon"><i class="fas fa-envelope"></i></div>
                     <h3>Lluvia de Sobres</h3>
-                    <p>O puedes obsequiarnos un sobre el día del evento</p>
+                    <p>Puedes obsequiarnos un sobre el día del evento</p>
                 </div>
 
                 <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
             </div>
         </section>
 
-        <!-- 9. Social Media Section -->
+        <!-- 8. Social Media Section -->
         <section class="content-section" data-section="social">
             <div class="hero-content">
                 <p class="hero-subtitle">QUEREMOS VER TUS FOTOS</p>
                 <h1 class="hero-title">COMPARTE CON NOSOTROS</h1>
 
                 <p class="social-subtitle">Usa nuestro hashtag en redes sociales</p>
-                <h3 class="hashtag">#LauraYAbraham2026</h3>
+                <h3 class="hashtag">#AbrahamYLaura2026</h3>
 
                 <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
             </div>
         </section>
 
-        <!-- 10. RSVP Section -->
+        <!-- 9. RSVP Section -->
         <section class="content-section" data-section="rsvp">
             <div class="hero-content">
                 <p class="hero-subtitle">NECESITAMOS SABER</p>
@@ -261,16 +212,44 @@
 
                 <div class="whatsapp-numbers">
                     <div class="whatsapp-item">
-                        <p class="whatsapp-name"><i class="fas fa-ring"></i> Laura</p>
-                        <a href="https://wa.me/5214777215847?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Laura%20y%20Abraham" target="_blank" class="btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> 477-721-5847
+                        <p class="whatsapp-name"><i class="fas fa-ring"></i> Abraham</p>
+                        <a href="https://wa.me/5214737389999?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Abraham%20y%20Laura" target="_blank" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> 473-738-9999
                         </a>
                     </div>
                     <div class="whatsapp-item">
-                        <p class="whatsapp-name"><i class="fas fa-ring"></i> Abraham</p>
-                        <a href="https://wa.me/5214737389999?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Laura%20y%20Abraham" target="_blank" class="btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> 473-738-9999
+                        <p class="whatsapp-name"><i class="fas fa-ring"></i> Laura</p>
+                        <a href="https://wa.me/5214777215847?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Abraham%20y%20Laura" target="_blank" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> 477-721-5847
                         </a>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 10. Info Section -->
+        <section class="content-section" data-section="info">
+            <div class="hero-content">
+                <p class="hero-subtitle">DETALLES QUE DEBES SABER</p>
+                <h1 class="hero-title">INFORMACIÓN</h1>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-music"></i></div>
+                        <h3>Música</h3>
+                        <p>¡Habrá música en vivo y DJ!</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-utensils"></i></div>
+                        <h3>Comida y Bebida</h3>
+                        <p>Cena completa y barra libre</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-parking"></i></div>
+                        <h3>Estacionamiento</h3>
+                        <p>Habrá estacionamiento disponible</p>
                     </div>
                 </div>
 
@@ -284,7 +263,7 @@
     <footer class="footer">
         <div class="container">
             <p class="footer-message">¡Gracias por acompañarnos en este día tan especial!</p>
-            <p class="footer-names">Laura & Abraham</p>
+            <p class="footer-names">Abraham & Laura</p>
             <p class="footer-date">19.12.2026</p>
             <p class="footer-credit">Invitaciones, Fotografía y Video: Foro 7 - Arturo Cruz - 477-920-3776</p>
         </div>
@@ -292,6 +271,5 @@
 
     <script src="talavera-generative.js"></script>
     <script src="script.js"></script>
-    <script src="visitas.js?v=1"></script>
 </body>
 </html>
