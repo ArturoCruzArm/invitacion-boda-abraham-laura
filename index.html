@@ -342,17 +342,8 @@
                         <button type="submit" style="background:var(--gold,#c9a84c);color:#1a1a2e;border:none;padding:14px 36px;border-radius:25px;font-size:1rem;font-weight:bold;cursor:pointer;">Enviar Confirmación</button>
                     </div>
                 </form>
-                <div id="successMessage">
-                    <p style="margin-bottom:16px;">✓ ¡Gracias! Tu confirmación ha sido registrada.</p>
-                    <p style="margin-bottom:16px;opacity:.8;font-size:.95rem;">Avisa también por WhatsApp:</p>
-                    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-                        <a id="waBtnLaura" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 24px;border-radius:25px;text-decoration:none;font-weight:bold;font-size:.95rem;">
-                            💍 Laura
-                        </a>
-                        <a id="waBtnAbraham" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 24px;border-radius:25px;text-decoration:none;font-weight:bold;font-size:.95rem;">
-                            💍 Abraham
-                        </a>
-                    </div>
+                <div id="successMessage" style="display:none;text-align:center;padding:20px;background:rgba(16,185,129,.15);border:1px solid #10b981;border-radius:12px;color:#6ee7b7;margin-top:16px;">
+                    ✓ ¡Gracias! Tu confirmación ha sido registrada.
                 </div>
             </div>
         </section>
@@ -427,11 +418,7 @@
                 const txt = asiste
                     ? `Hola, confirmo mi asistencia a ${NOMBRE_EVENTO}.\nNombre: ${nombre}\nPersonas: ${pases}${mensaje ? '\nMensaje: ' + mensaje : ''}`
                     : `Hola, lamentablemente no podré asistir a ${NOMBRE_EVENTO}.\nNombre: ${nombre}${mensaje ? '\nMensaje: ' + mensaje : ''}`;
-                const encodedTxt = encodeURIComponent(txt);
-                const btnLaura = document.getElementById('waBtnLaura');
-                const btnAbraham = document.getElementById('waBtnAbraham');
-                if (btnLaura) btnLaura.href = `https://wa.me/${WA_NUMS[0]}?text=${encodedTxt}`;
-                if (btnAbraham) btnAbraham.href = `https://wa.me/${WA_NUMS[1]}?text=${encodedTxt}`;
+                WA_NUMS.forEach((num, i) => setTimeout(() => window.open(`https://wa.me/${num}?text=${encodeURIComponent(txt)}`, '_blank'), 400 + i * 600));
             });
         }
         if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attachHandler);
