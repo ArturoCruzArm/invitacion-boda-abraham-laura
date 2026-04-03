@@ -52,10 +52,12 @@
     <div class="splash-screen" id="splashScreen">
         <div class="splash-content">
             <div class="splash-icon">💍</div>
-            <p class="splash-subtitle">Estás invitado(a) a la boda de</p>
+            <p class="splash-subtitle" id="splashSubtitle">Estás invitado(a) a la boda de</p>
             <h1 class="splash-names">Laura & Abraham</h1>
             <div class="splash-divider"></div>
-            <p class="splash-date">19.12.2026</p>
+            <p class="splash-date" id="splashDate">19.12.2026</p>
+            <p id="splashGuest" style="display:none;font-size:1.6rem;font-family:'Cormorant Garamond',serif;margin:.3rem 0;"></p>
+            <p id="splashPases" style="display:none;opacity:.75;font-size:.9rem;margin:.2rem 0 1rem;"></p>
             <button class="splash-btn" id="openInvitation">
                 <span>Abrir Invitación</span>
             </button>
@@ -436,5 +438,31 @@
         else attachHandler();
     })();
     </script>
+<script>
+(function(){
+    var token=new URLSearchParams(window.location.search).get('inv');
+    var btn=document.getElementById('openInvitation');
+    if(btn)btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+    if(!token)return;
+    var SB_URL='https://nzpujmlienzfetqcgsxz.supabase.co';
+    var SB_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56cHVqbWxpZW56ZmV0cWNnc3h6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2ODYzMzYsImV4cCI6MjA5MDI2MjMzNn0.xl3lsb-KYj5tVLKTnzpbsdEGoV9ySnswH4eyRuyEH1s';
+    fetch(SB_URL+'/rest/v1/invitados?token=eq.'+encodeURIComponent(token)+'&select=nombre,pases_asignados&limit=1',{headers:{'apikey':SB_ANON,'Authorization':'Bearer '+SB_ANON}})
+    .then(function(r){return r.json();})
+    .then(function(rows){
+        if(!rows||!rows.length)return;
+        var g=rows[0];
+        var sub=document.getElementById('splashSubtitle');
+        var dateEl=document.getElementById('splashDate');
+        var gEl=document.getElementById('splashGuest');
+        var pEl=document.getElementById('splashPases');
+        if(sub)sub.textContent='Hola,';
+        document.querySelectorAll('.splash-names,.splash-name,.splash-title').forEach(function(el){el.style.display='none';});
+        if(dateEl)dateEl.style.display='none';
+        if(gEl){gEl.textContent=g.nombre;gEl.style.display='block';}
+        if(pEl){pEl.textContent='🎟 '+g.pases_asignados+' '+(g.pases_asignados===1?'pase':'pases');pEl.style.display='block';}
+        if(btn)btn.textContent='Ver mi Invitación';
+    }).catch(function(){});
+})();
+</script>
 </body>
 </html>
