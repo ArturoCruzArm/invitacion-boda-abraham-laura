@@ -100,7 +100,7 @@ function initCountdown() {
     const weddingYear = 2026;
     const weddingMonth = 11; // Diciembre (0=enero, 11=diciembre)
     const weddingDay = 19;
-    const weddingHour = 19; // 7:00 PM estimado
+    const weddingHour = 13; // 1:00 PM ceremonia
     const weddingMinute = 0;
 
     const weddingDate = new Date(weddingYear, weddingMonth, weddingDay, weddingHour, weddingMinute, 0).getTime();
