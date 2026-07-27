@@ -87,15 +87,17 @@ El paquete incluye los siguientes servicios y productos:
 - 1 película completa del evento en formato digital (USB)
 - Edición profesional con musicalización y títulos
 - 1 videoclip de la sesión previa y fotos del recuerdo para proyección en el salón
+- Tomas aéreas con dron durante el evento, sujetas a condiciones climáticas, restricciones del recinto y normatividad aplicable
 - 1 caja impresa personalizada para el USB
 
 #### Servicios NO incluidos en este paquete:
-- Tomas aéreas con dron (disponible por $500 MXN adicionales)
 - Horas extras de cobertura ($500 MXN por hora adicional)
 
 ### TERCERA - PRECIO Y FORMA DE PAGO
 
-**Precio total del paquete:** $8,500.00 MXN (Ocho mil quinientos pesos 00/100 M.N.)
+**Precio total actualizado del paquete:** $9,500.00 MXN (Nueve mil quinientos pesos 00/100 M.N.)
+
+**Actualización:** El total incluye $500.00 MXN por el servicio de tomas aéreas con dron.
 
 **Forma de pago:**
 
@@ -104,9 +106,16 @@ El paquete incluye los siguientes servicios y productos:
    - **Fecha de pago:** 07 de Enero de 2026
    - **Método:** Transferencia bancaria
 
-2. **Pago final:** $8,000.00 MXN
+2. **Abono durante la sesión fotográfica:** $1,500.00 MXN
+   - **Estado:** ✅ PAGADO
+   - **Fecha de pago:** 18 de Julio de 2026
+   - **Método:** Efectivo
+
+3. **Saldo pendiente:** $7,500.00 MXN
    - **Fecha límite:** 11 de Diciembre de 2026 (8 días antes del evento)
    - **Método:** Transferencia bancaria a la cuenta especificada
+
+**Total pagado al paquete:** $2,000.00 MXN
 
 **Nota:** LOS CONTRATANTES pueden realizar pagos parciales en cualquier momento antes de la fecha límite del pago final.
 
@@ -263,8 +272,9 @@ Fecha: _______________________
 | Fecha | Concepto | Monto | Método | Estado |
 |-------|----------|-------|--------|--------|
 | 07/01/2026 | Anticipo | $500.00 | Transferencia | ✅ Pagado |
-| 11/12/2026 | Pago final | $8,000.00 | Transferencia | ⏳ Pendiente |
-| **TOTAL** | | **$8,500.00** | | |
+| 18/07/2026 | Abono en sesión fotográfica | $1,500.00 | Efectivo | ✅ Pagado |
+| 11/12/2026 | Saldo pendiente | $7,500.00 | Transferencia | ⏳ Pendiente |
+| **TOTAL** | | **$9,500.00** | | |
 
 ---
 
@@ -272,9 +282,9 @@ Fecha: _______________________
 
 - [ ] Confirmar hora y lugar de ceremonia religiosa
 - [ ] Confirmar hora de recepción
-- [ ] Programar sesión fotográfica previa (al menos 15 días antes)
+- [x] Sesión fotográfica previa realizada el 18/07/2026
 - [ ] LOS CONTRATANTES entregan fotos para videoclip (al menos 10 días antes)
-- [ ] Liquidación del saldo ($8,000) - 11/12/2026
+- [ ] Liquidación del saldo ($7,500) - 11/12/2026
 - [ ] Coordinación final pre-evento (1 semana antes)
 - [ ] Lista de fotografías específicas deseadas (opcional)
 - [ ] Información de contacto de coordinador del día del evento
