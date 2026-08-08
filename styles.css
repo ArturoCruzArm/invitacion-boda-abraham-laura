@@ -302,6 +302,85 @@ body::after {
     text-shadow: 2px 2px 4px rgba(30, 58, 138, 0.1);
 }
 
+/* Fotografías de la pareja: integradas como páginas de un álbum */
+.wedding-photo {
+    position: relative;
+    width: min(100%, 620px);
+    margin: 0 auto 42px;
+    padding: 10px;
+    overflow: hidden;
+    background: var(--blanco);
+    border: 1px solid rgba(30, 58, 138, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.2);
+}
+
+.wedding-photo::after {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+.wedding-photo img {
+    display: block;
+    width: 100%;
+    height: clamp(300px, 58vw, 520px);
+    object-fit: cover;
+    border-radius: 17px;
+}
+
+.wedding-photo figcaption {
+    position: absolute;
+    z-index: 1;
+    right: 25px;
+    bottom: 23px;
+    left: 25px;
+    color: var(--blanco);
+    font-family: var(--font-cursive);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    line-height: 1;
+    text-align: center;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+}
+
+.wedding-photo--portrait img {
+    object-position: 50% 26%;
+}
+
+.wedding-photo--ceremony {
+    width: min(100%, 540px);
+}
+
+.wedding-photo--ceremony img {
+    height: clamp(350px, 66vw, 610px);
+    object-position: 50% 58%;
+}
+
+.wedding-photo--closing {
+    width: min(100%, 680px);
+}
+
+.wedding-photo--closing img {
+    height: clamp(340px, 62vw, 560px);
+    object-position: 50% 60%;
+}
+
+@media (max-width: 600px) {
+    .wedding-photo {
+        margin-bottom: 28px;
+        padding: 7px;
+        border-radius: 18px;
+    }
+    .wedding-photo img { border-radius: 12px; }
+    .wedding-photo::after { inset: 13px; border-radius: 10px; }
+    .wedding-photo--portrait img { height: 390px; }
+    .wedding-photo--ceremony img,
+    .wedding-photo--closing img { height: 430px; }
+}
+
 .couple-names-container {
     margin: 70px 0;
     animation: scaleIn 1.2s ease-out 0.4s backwards;
